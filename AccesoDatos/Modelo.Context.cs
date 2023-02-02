@@ -69,5 +69,70 @@ namespace AccesoDatos
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("InicioSesion", usuarioParameter, passwordParameter);
         }
+    
+        public virtual int AgregaCorreo()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AgregaCorreo");
+        }
+    
+        public virtual int AgregarTelefono()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AgregarTelefono");
+        }
+    
+        public virtual int IngresarCorreo(Nullable<int> id, string correo)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var correoParameter = correo != null ?
+                new ObjectParameter("correo", correo) :
+                new ObjectParameter("correo", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("IngresarCorreo", idParameter, correoParameter);
+        }
+    
+        public virtual int InsertarTelefono(Nullable<int> id, string numero)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var numeroParameter = numero != null ?
+                new ObjectParameter("numero", numero) :
+                new ObjectParameter("numero", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertarTelefono", idParameter, numeroParameter);
+        }
+    
+        public virtual int RegistrarContacto(Nullable<int> id, string nom, string ape, string face, string insta, string twi)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var nomParameter = nom != null ?
+                new ObjectParameter("nom", nom) :
+                new ObjectParameter("nom", typeof(string));
+    
+            var apeParameter = ape != null ?
+                new ObjectParameter("ape", ape) :
+                new ObjectParameter("ape", typeof(string));
+    
+            var faceParameter = face != null ?
+                new ObjectParameter("face", face) :
+                new ObjectParameter("face", typeof(string));
+    
+            var instaParameter = insta != null ?
+                new ObjectParameter("insta", insta) :
+                new ObjectParameter("insta", typeof(string));
+    
+            var twiParameter = twi != null ?
+                new ObjectParameter("twi", twi) :
+                new ObjectParameter("twi", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("RegistrarContacto", idParameter, nomParameter, apeParameter, faceParameter, instaParameter, twiParameter);
+        }
     }
 }

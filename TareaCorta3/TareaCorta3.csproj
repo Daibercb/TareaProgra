@@ -72,11 +72,21 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CorreoElectronico.aspx" />
     <Content Include="login.aspx" />
     <Content Include="RegistrarUsuarios.aspx" />
+    <Content Include="RegistroContacto.aspx" />
+    <Content Include="Telefono.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CorreoElectronico.aspx.cs">
+      <DependentUpon>CorreoElectronico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CorreoElectronico.aspx.designer.cs">
+      <DependentUpon>CorreoElectronico.aspx</DependentUpon>
+    </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -91,6 +101,20 @@
     </Compile>
     <Compile Include="RegistrarUsuarios.aspx.designer.cs">
       <DependentUpon>RegistrarUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroContacto.aspx.cs">
+      <DependentUpon>RegistroContacto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistroContacto.aspx.designer.cs">
+      <DependentUpon>RegistroContacto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Telefono.aspx.cs">
+      <DependentUpon>Telefono.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Telefono.aspx.designer.cs">
+      <DependentUpon>Telefono.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

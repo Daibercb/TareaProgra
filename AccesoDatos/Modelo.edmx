@@ -12,11 +12,11 @@
           <Property Name="Identificacion" Type="int" Nullable="false" />
           <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Apellidos" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Telefonos" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Correos" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Facebook" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Instagram" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Twitter" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telefonos" Type="varchar" MaxLength="50" />
+          <Property Name="Correos" Type="varchar" MaxLength="50" />
+          <Property Name="Facebook" Type="varchar" MaxLength="50" />
+          <Property Name="Instagram" Type="varchar" MaxLength="50" />
+          <Property Name="Twitter" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="CorreoElectronico">
           <Key>
@@ -78,9 +78,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="AgregaCorreo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base" />
+        <Function Name="AgregarTelefono" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base" />
+        <Function Name="IngresarCorreo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="correo" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="InicioSesion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
           <Parameter Name="usuario" Type="varchar" Mode="In" />
           <Parameter Name="password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="InsertarTelefono" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="numero" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="RegistrarContacto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="nom" Type="varchar" Mode="In" />
+          <Parameter Name="ape" Type="varchar" Mode="In" />
+          <Parameter Name="face" Type="varchar" Mode="In" />
+          <Parameter Name="insta" Type="varchar" Mode="In" />
+          <Parameter Name="twi" Type="varchar" Mode="In" />
         </Function>
         <Function Name="RegistrarUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
           <Parameter Name="Id" Type="varchar" Mode="In" />
@@ -118,11 +136,11 @@
           <Property Name="Identificacion" Type="Int32" Nullable="false" />
           <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Telefonos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Correos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Facebook" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Instagram" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Twitter" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefonos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Correos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Facebook" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Instagram" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Twitter" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Contacto1" Relationship="Self.FK_Contacto_Contacto" FromRole="Contacto" ToRole="Contacto1" />
           <NavigationProperty Name="Contacto2" Relationship="Self.FK_Contacto_Contacto" FromRole="Contacto1" ToRole="Contacto" />
           <NavigationProperty Name="CorreoElectronico" Relationship="Self.FK_CorreoElectronico_Contacto" FromRole="Contacto" ToRole="CorreoElectronico" />
@@ -218,6 +236,24 @@
             <Parameter Name="usuario" Mode="In" Type="String" />
             <Parameter Name="password" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="AgregaCorreo" />
+          <FunctionImport Name="AgregarTelefono" />
+          <FunctionImport Name="IngresarCorreo">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="correo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertarTelefono">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="numero" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="RegistrarContacto">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="nom" Mode="In" Type="String" />
+            <Parameter Name="ape" Mode="In" Type="String" />
+            <Parameter Name="face" Mode="In" Type="String" />
+            <Parameter Name="insta" Mode="In" Type="String" />
+            <Parameter Name="twi" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -268,6 +304,11 @@
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="RegistrarUsuario" FunctionName="ModeloTarea.Store.RegistrarUsuario" />
           <FunctionImportMapping FunctionImportName="InicioSesion" FunctionName="ModeloTarea.Store.InicioSesion" />
+          <FunctionImportMapping FunctionImportName="AgregaCorreo" FunctionName="ModeloTarea.Store.AgregaCorreo" />
+          <FunctionImportMapping FunctionImportName="AgregarTelefono" FunctionName="ModeloTarea.Store.AgregarTelefono" />
+          <FunctionImportMapping FunctionImportName="IngresarCorreo" FunctionName="ModeloTarea.Store.IngresarCorreo" />
+          <FunctionImportMapping FunctionImportName="InsertarTelefono" FunctionName="ModeloTarea.Store.InsertarTelefono" />
+          <FunctionImportMapping FunctionImportName="RegistrarContacto" FunctionName="ModeloTarea.Store.RegistrarContacto" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
