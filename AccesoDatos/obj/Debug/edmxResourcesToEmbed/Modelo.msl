@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModeloTareaStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Contacto">
+      <EntityTypeMapping TypeName="ModeloTarea.Contacto">
+        <MappingFragment StoreEntitySet="Contacto">
+          <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Telefonos" ColumnName="Telefonos" />
+          <ScalarProperty Name="Correos" ColumnName="Correos" />
+          <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+          <ScalarProperty Name="Instagram" ColumnName="Instagram" />
+          <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CorreoElectronico">
+      <EntityTypeMapping TypeName="ModeloTarea.CorreoElectronico">
+        <MappingFragment StoreEntitySet="CorreoElectronico">
+          <ScalarProperty Name="IDContacto" ColumnName="IDContacto" />
+          <ScalarProperty Name="Correoelectronico1" ColumnName="Correoelectronico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Telefonos">
+      <EntityTypeMapping TypeName="ModeloTarea.Telefonos">
+        <MappingFragment StoreEntitySet="Telefonos">
+          <ScalarProperty Name="IDContacto" ColumnName="IDContacto" />
+          <ScalarProperty Name="Telefonos1" ColumnName="Telefonos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="ModeloTarea.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="RegistrarUsuario" FunctionName="ModeloTarea.Store.RegistrarUsuario" />
+    <FunctionImportMapping FunctionImportName="InicioSesion" FunctionName="ModeloTarea.Store.InicioSesion" />
+  </EntityContainerMapping>
+</Mapping>

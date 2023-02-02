@@ -1,0 +1,24 @@
+C:\Users\ETC\Documents\Tarea progra 3\TareaCorta3\AccesoDatos\bin\Debug\AccesoDatos.dll.config
+C:\Users\ETC\Documents\Tarea progra 3\TareaCorta3\AccesoDatos\bin\Debug\AccesoDatos.dll
+C:\Users\ETC\Documents\Tarea progra 3\TareaCorta3\AccesoDatos\bin\Debug\AccesoDatos.pdb
+C:\Users\ETC\Documents\Tarea progra 3\TareaCorta3\AccesoDatos\bin\Debug\EntityFramework.dll
+C:\Users\ETC\Documents\Tarea progra 3\TareaCorta3\AccesoDatos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ETC\Documents\Tarea progra 3\TareaCorta3\AccesoDatos\bin\Debug\EntityFramework.xml
+C:\Users\ETC\Documents\Tarea progra 3\TareaCorta3\AccesoDatos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ETC\Documents\Tarea progra 3\TareaCorta3\AccesoDatos\obj\Debug\AccesoDatos.csproj.AssemblyReference.cache
+C:\Users\ETC\Documents\Tarea progra 3\TareaCorta3\AccesoDatos\obj\Debug\AccesoDatos.csproj.CoreCompileInputs.cache
+C:\Users\ETC\Documents\Tarea progra 3\TareaCorta3\AccesoDatos\obj\Debug\AccesoDatos.csproj.CopyComplete
+C:\Users\ETC\Documents\Tarea progra 3\TareaCorta3\AccesoDatos\obj\Debug\AccesoDatos.dll
+C:\Users\ETC\Documents\Tarea progra 3\TareaCorta3\AccesoDatos\obj\Debug\AccesoDatos.pdb
+C:\Users\Daiber CB\Desktop\TareaCorta3\AccesoDatos\bin\Debug\AccesoDatos.dll.config
+C:\Users\Daiber CB\Desktop\TareaCorta3\AccesoDatos\bin\Debug\AccesoDatos.dll
+C:\Users\Daiber CB\Desktop\TareaCorta3\AccesoDatos\bin\Debug\AccesoDatos.pdb
+C:\Users\Daiber CB\Desktop\TareaCorta3\AccesoDatos\bin\Debug\EntityFramework.dll
+C:\Users\Daiber CB\Desktop\TareaCorta3\AccesoDatos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Daiber CB\Desktop\TareaCorta3\AccesoDatos\bin\Debug\EntityFramework.xml
+C:\Users\Daiber CB\Desktop\TareaCorta3\AccesoDatos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Daiber CB\Desktop\TareaCorta3\AccesoDatos\obj\Debug\AccesoDatos.csproj.AssemblyReference.cache
+C:\Users\Daiber CB\Desktop\TareaCorta3\AccesoDatos\obj\Debug\AccesoDatos.csproj.CoreCompileInputs.cache
+C:\Users\Daiber CB\Desktop\TareaCorta3\AccesoDatos\obj\Debug\AccesoDatos.csproj.CopyComplete
+C:\Users\Daiber CB\Desktop\TareaCorta3\AccesoDatos\obj\Debug\AccesoDatos.dll
+C:\Users\Daiber CB\Desktop\TareaCorta3\AccesoDatos\obj\Debug\AccesoDatos.pdb

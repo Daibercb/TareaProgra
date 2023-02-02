@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ModeloTarea.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Contacto">
+    <Key>
+      <PropertyRef Name="Identificacion" />
+    </Key>
+    <Property Name="Identificacion" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apellidos" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Telefonos" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Correos" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Facebook" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Instagram" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Twitter" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CorreoElectronico">
+    <Key>
+      <PropertyRef Name="IDContacto" />
+    </Key>
+    <Property Name="IDContacto" Type="int" Nullable="false" />
+    <Property Name="Correoelectronico" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Telefonos">
+    <Key>
+      <PropertyRef Name="IDContacto" />
+    </Key>
+    <Property Name="IDContacto" Type="int" Nullable="false" />
+    <Property Name="Telefonos" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="Identificacion" />
+    </Key>
+    <Property Name="Identificacion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apellido" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Contraseña" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Estado" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Contacto_Contacto">
+    <End Role="Contacto" Type="Self.Contacto" Multiplicity="1" />
+    <End Role="Contacto1" Type="Self.Contacto" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Contacto">
+        <PropertyRef Name="Identificacion" />
+      </Principal>
+      <Dependent Role="Contacto1">
+        <PropertyRef Name="Identificacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CorreoElectronico_Contacto">
+    <End Role="Contacto" Type="Self.Contacto" Multiplicity="1" />
+    <End Role="CorreoElectronico" Type="Self.CorreoElectronico" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Contacto">
+        <PropertyRef Name="Identificacion" />
+      </Principal>
+      <Dependent Role="CorreoElectronico">
+        <PropertyRef Name="IDContacto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Telefonos_Contacto">
+    <End Role="Contacto" Type="Self.Contacto" Multiplicity="1" />
+    <End Role="Telefonos" Type="Self.Telefonos" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Contacto">
+        <PropertyRef Name="Identificacion" />
+      </Principal>
+      <Dependent Role="Telefonos">
+        <PropertyRef Name="IDContacto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="InicioSesion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
+    <Parameter Name="usuario" Type="varchar" Mode="In" />
+    <Parameter Name="password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="RegistrarUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
+    <Parameter Name="Id" Type="varchar" Mode="In" />
+    <Parameter Name="nom" Type="varchar" Mode="In" />
+    <Parameter Name="ape" Type="varchar" Mode="In" />
+    <Parameter Name="contraseña" Type="varchar" Mode="In" />
+    <Parameter Name="Estado" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="ModeloTareaStoreContainer">
+    <EntitySet Name="Contacto" EntityType="Self.Contacto" Schema="Base" store:Type="Tables" />
+    <EntitySet Name="CorreoElectronico" EntityType="Self.CorreoElectronico" Schema="Base" store:Type="Tables" />
+    <EntitySet Name="Telefonos" EntityType="Self.Telefonos" Schema="Base" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="Base" store:Type="Tables" />
+    <AssociationSet Name="FK_Contacto_Contacto" Association="Self.FK_Contacto_Contacto">
+      <End Role="Contacto" EntitySet="Contacto" />
+      <End Role="Contacto1" EntitySet="Contacto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CorreoElectronico_Contacto" Association="Self.FK_CorreoElectronico_Contacto">
+      <End Role="Contacto" EntitySet="Contacto" />
+      <End Role="CorreoElectronico" EntitySet="CorreoElectronico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Telefonos_Contacto" Association="Self.FK_Telefonos_Contacto">
+      <End Role="Contacto" EntitySet="Contacto" />
+      <End Role="Telefonos" EntitySet="Telefonos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

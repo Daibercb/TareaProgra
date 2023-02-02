@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="21fcd4a114b24f72b7f3e7bc8d7250ee" Name="Diagram1">
+        <EntityTypeShape EntityType="ModeloTarea.Contacto" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloTarea.CorreoElectronico" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloTarea.Telefonos" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloTarea.Usuarios" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="ModeloTarea.FK_Contacto_Contacto" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloTarea.FK_CorreoElectronico_Contacto" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloTarea.FK_Telefonos_Contacto" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,15 @@
+C:\Users\Daiber CB\Desktop\TareaCorta3\CapaNegocios\bin\Debug\CapaNegocios.dll.config
+C:\Users\Daiber CB\Desktop\TareaCorta3\CapaNegocios\bin\Debug\CapaNegocios.dll
+C:\Users\Daiber CB\Desktop\TareaCorta3\CapaNegocios\bin\Debug\CapaNegocios.pdb
+C:\Users\Daiber CB\Desktop\TareaCorta3\CapaNegocios\bin\Debug\AccesoDatos.dll
+C:\Users\Daiber CB\Desktop\TareaCorta3\CapaNegocios\bin\Debug\EntityFramework.dll
+C:\Users\Daiber CB\Desktop\TareaCorta3\CapaNegocios\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Daiber CB\Desktop\TareaCorta3\CapaNegocios\bin\Debug\AccesoDatos.pdb
+C:\Users\Daiber CB\Desktop\TareaCorta3\CapaNegocios\bin\Debug\AccesoDatos.dll.config
+C:\Users\Daiber CB\Desktop\TareaCorta3\CapaNegocios\bin\Debug\EntityFramework.xml
+C:\Users\Daiber CB\Desktop\TareaCorta3\CapaNegocios\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Daiber CB\Desktop\TareaCorta3\CapaNegocios\obj\Debug\CapaNegocios.csproj.AssemblyReference.cache
+C:\Users\Daiber CB\Desktop\TareaCorta3\CapaNegocios\obj\Debug\CapaNegocios.csproj.CoreCompileInputs.cache
+C:\Users\Daiber CB\Desktop\TareaCorta3\CapaNegocios\obj\Debug\CapaNegocios.csproj.CopyComplete
+C:\Users\Daiber CB\Desktop\TareaCorta3\CapaNegocios\obj\Debug\CapaNegocios.dll
+C:\Users\Daiber CB\Desktop\TareaCorta3\CapaNegocios\obj\Debug\CapaNegocios.pdb

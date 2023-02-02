@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ModeloTarea" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Contacto">
+    <Key>
+      <PropertyRef Name="Identificacion" />
+    </Key>
+    <Property Name="Identificacion" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Telefonos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Correos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Facebook" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Instagram" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Twitter" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Contacto1" Relationship="Self.FK_Contacto_Contacto" FromRole="Contacto" ToRole="Contacto1" />
+    <NavigationProperty Name="Contacto2" Relationship="Self.FK_Contacto_Contacto" FromRole="Contacto1" ToRole="Contacto" />
+    <NavigationProperty Name="CorreoElectronico" Relationship="Self.FK_CorreoElectronico_Contacto" FromRole="Contacto" ToRole="CorreoElectronico" />
+    <NavigationProperty Name="Telefonos1" Relationship="Self.FK_Telefonos_Contacto" FromRole="Contacto" ToRole="Telefonos" />
+  </EntityType>
+  <EntityType Name="CorreoElectronico">
+    <Key>
+      <PropertyRef Name="IDContacto" />
+    </Key>
+    <Property Name="IDContacto" Type="Int32" Nullable="false" />
+    <Property Name="Correoelectronico1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Contacto" Relationship="Self.FK_CorreoElectronico_Contacto" FromRole="CorreoElectronico" ToRole="Contacto" />
+  </EntityType>
+  <EntityType Name="Telefonos">
+    <Key>
+      <PropertyRef Name="IDContacto" />
+    </Key>
+    <Property Name="IDContacto" Type="Int32" Nullable="false" />
+    <Property Name="Telefonos1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Contacto" Relationship="Self.FK_Telefonos_Contacto" FromRole="Telefonos" ToRole="Contacto" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="Identificacion" />
+    </Key>
+    <Property Name="Identificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Contraseña" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Estado" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Contacto_Contacto">
+    <End Role="Contacto" Type="Self.Contacto" Multiplicity="1" />
+    <End Role="Contacto1" Type="Self.Contacto" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Contacto">
+        <PropertyRef Name="Identificacion" />
+      </Principal>
+      <Dependent Role="Contacto1">
+        <PropertyRef Name="Identificacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CorreoElectronico_Contacto">
+    <End Role="Contacto" Type="Self.Contacto" Multiplicity="1" />
+    <End Role="CorreoElectronico" Type="Self.CorreoElectronico" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Contacto">
+        <PropertyRef Name="Identificacion" />
+      </Principal>
+      <Dependent Role="CorreoElectronico">
+        <PropertyRef Name="IDContacto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Telefonos_Contacto">
+    <End Role="Contacto" Type="Self.Contacto" Multiplicity="1" />
+    <End Role="Telefonos" Type="Self.Telefonos" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Contacto">
+        <PropertyRef Name="Identificacion" />
+      </Principal>
+      <Dependent Role="Telefonos">
+        <PropertyRef Name="IDContacto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Contacto" EntityType="Self.Contacto" />
+    <EntitySet Name="CorreoElectronico" EntityType="Self.CorreoElectronico" />
+    <EntitySet Name="Telefonos" EntityType="Self.Telefonos" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+    <AssociationSet Name="FK_Contacto_Contacto" Association="Self.FK_Contacto_Contacto">
+      <End Role="Contacto" EntitySet="Contacto" />
+      <End Role="Contacto1" EntitySet="Contacto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CorreoElectronico_Contacto" Association="Self.FK_CorreoElectronico_Contacto">
+      <End Role="Contacto" EntitySet="Contacto" />
+      <End Role="CorreoElectronico" EntitySet="CorreoElectronico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Telefonos_Contacto" Association="Self.FK_Telefonos_Contacto">
+      <End Role="Contacto" EntitySet="Contacto" />
+      <End Role="Telefonos" EntitySet="Telefonos" />
+    </AssociationSet>
+    <FunctionImport Name="RegistrarUsuario">
+      <Parameter Name="Id" Mode="In" Type="String" />
+      <Parameter Name="nom" Mode="In" Type="String" />
+      <Parameter Name="ape" Mode="In" Type="String" />
+      <Parameter Name="contraseña" Mode="In" Type="String" />
+      <Parameter Name="Estado" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InicioSesion" ReturnType="Collection(Int32)">
+      <Parameter Name="usuario" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>
