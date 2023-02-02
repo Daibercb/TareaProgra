@@ -75,6 +75,18 @@
   </Association>
   <Function Name="AgregaCorreo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base" />
   <Function Name="AgregarTelefono" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base" />
+  <Function Name="eliminarContacto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="eliminarCorreo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="eliminarTelefono" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="eliminarUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
+    <Parameter Name="Id" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="IngresarCorreo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
     <Parameter Name="id" Type="int" Mode="In" />
     <Parameter Name="correo" Type="varchar" Mode="In" />
@@ -86,6 +98,35 @@
   <Function Name="InsertarTelefono" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
     <Parameter Name="id" Type="int" Mode="In" />
     <Parameter Name="numero" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="ModificarContacto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
+    <Parameter Name="Identificacion" Type="int" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="Apellido" Type="varchar" Mode="In" />
+    <Parameter Name="Facebook" Type="varchar" Mode="In" />
+    <Parameter Name="Instagram" Type="varchar" Mode="In" />
+    <Parameter Name="Twitter" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="ModificarContraseña" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
+    <Parameter Name="Id" Type="varchar" Mode="In" />
+    <Parameter Name="Contraseña" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="ModificarCorreo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Correo" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="ModificarEstado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
+    <Parameter Name="Id" Type="varchar" Mode="In" />
+    <Parameter Name="Estado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ModificarTele" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Telefono" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="ModificarUsuarios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
+    <Parameter Name="id" Type="varchar" Mode="In" />
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+    <Parameter Name="apellidos" Type="varchar" Mode="In" />
   </Function>
   <Function Name="RegistrarContacto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
     <Parameter Name="id" Type="int" Mode="In" />

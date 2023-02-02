@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Modelo.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Modelo.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Contacto">
           <Key>
             <PropertyRef Name="Identificacion" />
@@ -80,6 +80,18 @@
         </Association>
         <Function Name="AgregaCorreo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base" />
         <Function Name="AgregarTelefono" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base" />
+        <Function Name="eliminarContacto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="eliminarCorreo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="eliminarTelefono" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="eliminarUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
+          <Parameter Name="Id" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="IngresarCorreo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
           <Parameter Name="id" Type="int" Mode="In" />
           <Parameter Name="correo" Type="varchar" Mode="In" />
@@ -91,6 +103,35 @@
         <Function Name="InsertarTelefono" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
           <Parameter Name="id" Type="int" Mode="In" />
           <Parameter Name="numero" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="ModificarContacto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
+          <Parameter Name="Identificacion" Type="int" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="Apellido" Type="varchar" Mode="In" />
+          <Parameter Name="Facebook" Type="varchar" Mode="In" />
+          <Parameter Name="Instagram" Type="varchar" Mode="In" />
+          <Parameter Name="Twitter" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="ModificarContraseña" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
+          <Parameter Name="Id" Type="varchar" Mode="In" />
+          <Parameter Name="Contraseña" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="ModificarCorreo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Correo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="ModificarEstado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
+          <Parameter Name="Id" Type="varchar" Mode="In" />
+          <Parameter Name="Estado" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ModificarTele" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Telefono" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="ModificarUsuarios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
+          <Parameter Name="id" Type="varchar" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="apellidos" Type="varchar" Mode="In" />
         </Function>
         <Function Name="RegistrarContacto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Base">
           <Parameter Name="id" Type="int" Mode="In" />
@@ -125,8 +166,7 @@
             <End Role="Telefonos" EntitySet="Telefonos" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Modelo" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -255,6 +295,47 @@
             <Parameter Name="contraseña" Mode="In" Type="String" />
             <Parameter Name="Estado" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="eliminarContacto">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="eliminarCorreo">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="eliminarTelefono">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="eliminarUsuario">
+          <Parameter Name="Id" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ModificarContacto">
+            <Parameter Name="Identificacion" Mode="In" Type="Int32" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Apellido" Mode="In" Type="String" />
+            <Parameter Name="Facebook" Mode="In" Type="String" />
+            <Parameter Name="Instagram" Mode="In" Type="String" />
+            <Parameter Name="Twitter" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ModificarCorreo">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Correo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ModificarTele">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Telefono" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ModificarUsuarios">
+            <Parameter Name="id" Mode="In" Type="String" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="apellidos" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ModificarContraseña">
+            <Parameter Name="Id" Mode="In" Type="String" />
+            <Parameter Name="Contraseña" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ModificarEstado">
+            <Parameter Name="Id" Mode="In" Type="String" />
+            <Parameter Name="Estado" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -310,6 +391,16 @@
           <FunctionImportMapping FunctionImportName="InsertarTelefono" FunctionName="Modelo.Store.InsertarTelefono" />
           <FunctionImportMapping FunctionImportName="RegistrarContacto" FunctionName="Modelo.Store.RegistrarContacto" />
           <FunctionImportMapping FunctionImportName="RegistrarUsuario" FunctionName="Modelo.Store.RegistrarUsuario" />
+          <FunctionImportMapping FunctionImportName="eliminarContacto" FunctionName="Modelo.Store.eliminarContacto" />
+          <FunctionImportMapping FunctionImportName="eliminarCorreo" FunctionName="Modelo.Store.eliminarCorreo" />
+          <FunctionImportMapping FunctionImportName="eliminarTelefono" FunctionName="Modelo.Store.eliminarTelefono" />
+          <FunctionImportMapping FunctionImportName="eliminarUsuario" FunctionName="Modelo.Store.eliminarUsuario" />
+          <FunctionImportMapping FunctionImportName="ModificarContacto" FunctionName="Modelo.Store.ModificarContacto" />
+          <FunctionImportMapping FunctionImportName="ModificarCorreo" FunctionName="Modelo.Store.ModificarCorreo" />
+          <FunctionImportMapping FunctionImportName="ModificarTele" FunctionName="Modelo.Store.ModificarTele" />
+          <FunctionImportMapping FunctionImportName="ModificarUsuarios" FunctionName="Modelo.Store.ModificarUsuarios" />
+          <FunctionImportMapping FunctionImportName="ModificarContraseña" FunctionName="Modelo.Store.ModificarContraseña" />
+          <FunctionImportMapping FunctionImportName="ModificarEstado" FunctionName="Modelo.Store.ModificarEstado" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

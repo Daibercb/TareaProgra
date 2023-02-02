@@ -72,6 +72,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CambioContraseña.aspx" />
     <Content Include="CorreoElectronico.aspx" />
     <Content Include="login.aspx" />
     <Content Include="RegistrarUsuarios.aspx" />
@@ -80,6 +81,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CambioContraseña.aspx.cs">
+      <DependentUpon>CambioContraseña.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CambioContraseña.aspx.designer.cs">
+      <DependentUpon>CambioContraseña.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CorreoElectronico.aspx.cs">
       <DependentUpon>CorreoElectronico.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

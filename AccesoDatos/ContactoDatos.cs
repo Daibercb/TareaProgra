@@ -35,6 +35,31 @@ namespace AccesoDatos
             con.AgregaCorreo();
         }
 
+        public int modificarContacto(int id, string nom, string ape, string face, string insta, string tw)
+        {
+            return con.ModificarContacto(id, nom, ape, face, insta, tw);
+        }
+        public int ModificarCorreo(int id, string correo)
+        {
+            return con.ModificarCorreo(id, correo);
+        }
+        public int ModificarTel(int id, string correo)
+        {
+            return con.ModificarTele(id, correo);
+        }
+        public void EliminarContacto(int id)
+        {
+            con.eliminarContacto(id);
+        }
 
+        public void EliminarCorreo(int id)
+        {
+            con.eliminarCorreo(id);
+        }
+
+        public void EliminarTel(int id)
+        {
+            con.eliminarTelefono(id);
+        }
     }
 }

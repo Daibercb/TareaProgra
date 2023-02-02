@@ -31,5 +31,20 @@ namespace TareaCorta3
                 throw new Exception(ex.InnerException.ToString());
             }
         }
+
+        protected void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                con.ModificarCorreo(Convert.ToInt32(txtIdentificacionCorreo.Text), txtCorrreo.Text);
+                con.agregacorreo();
+                MessageBox.Show("Se modificó con exito");
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Error al modificar");
+            }
+        }
     }
 }

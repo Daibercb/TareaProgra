@@ -33,5 +33,35 @@ namespace CapaNegocios
         {
             con.AgregaCorreo();
         }
+
+        public int ModificarContacto(int id, string nom, string ape, string face, string insta, string tw)
+        {
+            return con.modificarContacto(id, nom, ape, face, insta, tw);
+        }
+
+        public int ModificarCorreo(int id, string correo)
+        {
+            return con.ModificarCorreo(id, correo);
+        }
+
+        public int ModificarTelefono(int id, string Telefono)
+        {
+            return con.ModificarTel(id, Telefono);
+        }
+
+        public void EliminarContacto(int id)
+        {
+            con.EliminarContacto(id);
+        }
+
+        public void EliminarCorreo(int id)
+        {
+            con.EliminarCorreo(id);
+        }
+
+        public void EliminarTel(int id)
+        {
+            con.EliminarTel(id);
+        }
     }
 }

@@ -125,5 +125,46 @@
       <Parameter Name="contraseña" Mode="In" Type="String" />
       <Parameter Name="Estado" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="eliminarContacto">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="eliminarCorreo">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="eliminarTelefono">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="eliminarUsuario">
+      <Parameter Name="Id" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ModificarContacto">
+      <Parameter Name="Identificacion" Mode="In" Type="Int32" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Apellido" Mode="In" Type="String" />
+      <Parameter Name="Facebook" Mode="In" Type="String" />
+      <Parameter Name="Instagram" Mode="In" Type="String" />
+      <Parameter Name="Twitter" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ModificarCorreo">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Correo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ModificarTele">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Telefono" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ModificarUsuarios">
+      <Parameter Name="id" Mode="In" Type="String" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="apellidos" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ModificarContraseña">
+      <Parameter Name="Id" Mode="In" Type="String" />
+      <Parameter Name="Contraseña" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ModificarEstado">
+      <Parameter Name="Id" Mode="In" Type="String" />
+      <Parameter Name="Estado" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
 </Schema>

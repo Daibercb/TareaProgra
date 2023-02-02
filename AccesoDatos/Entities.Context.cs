@@ -134,5 +134,139 @@ namespace AccesoDatos
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("RegistrarUsuario", idParameter, nomParameter, apeParameter, contraseñaParameter, estadoParameter);
         }
+    
+        public virtual int eliminarContacto(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("eliminarContacto", idParameter);
+        }
+    
+        public virtual int eliminarCorreo(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("eliminarCorreo", idParameter);
+        }
+    
+        public virtual int eliminarTelefono(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("eliminarTelefono", idParameter);
+        }
+    
+        public virtual int eliminarUsuario(string id)
+        {
+            var idParameter = id != null ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("eliminarUsuario", idParameter);
+        }
+    
+        public virtual int ModificarContacto(Nullable<int> identificacion, string nombre, string apellido, string facebook, string instagram, string twitter)
+        {
+            var identificacionParameter = identificacion.HasValue ?
+                new ObjectParameter("Identificacion", identificacion) :
+                new ObjectParameter("Identificacion", typeof(int));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var apellidoParameter = apellido != null ?
+                new ObjectParameter("Apellido", apellido) :
+                new ObjectParameter("Apellido", typeof(string));
+    
+            var facebookParameter = facebook != null ?
+                new ObjectParameter("Facebook", facebook) :
+                new ObjectParameter("Facebook", typeof(string));
+    
+            var instagramParameter = instagram != null ?
+                new ObjectParameter("Instagram", instagram) :
+                new ObjectParameter("Instagram", typeof(string));
+    
+            var twitterParameter = twitter != null ?
+                new ObjectParameter("Twitter", twitter) :
+                new ObjectParameter("Twitter", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ModificarContacto", identificacionParameter, nombreParameter, apellidoParameter, facebookParameter, instagramParameter, twitterParameter);
+        }
+    
+        public virtual int ModificarCorreo(Nullable<int> id, string correo)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var correoParameter = correo != null ?
+                new ObjectParameter("Correo", correo) :
+                new ObjectParameter("Correo", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ModificarCorreo", idParameter, correoParameter);
+        }
+    
+        public virtual int ModificarTele(Nullable<int> id, string telefono)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var telefonoParameter = telefono != null ?
+                new ObjectParameter("Telefono", telefono) :
+                new ObjectParameter("Telefono", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ModificarTele", idParameter, telefonoParameter);
+        }
+    
+        public virtual int ModificarUsuarios(string id, string nombre, string apellidos)
+        {
+            var idParameter = id != null ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(string));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var apellidosParameter = apellidos != null ?
+                new ObjectParameter("apellidos", apellidos) :
+                new ObjectParameter("apellidos", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ModificarUsuarios", idParameter, nombreParameter, apellidosParameter);
+        }
+    
+        public virtual int ModificarContraseña(string id, string contraseña)
+        {
+            var idParameter = id != null ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(string));
+    
+            var contraseñaParameter = contraseña != null ?
+                new ObjectParameter("Contraseña", contraseña) :
+                new ObjectParameter("Contraseña", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ModificarContraseña", idParameter, contraseñaParameter);
+        }
+    
+        public virtual int ModificarEstado(string id, Nullable<int> estado)
+        {
+            var idParameter = id != null ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(string));
+    
+            var estadoParameter = estado.HasValue ?
+                new ObjectParameter("Estado", estado) :
+                new ObjectParameter("Estado", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ModificarEstado", idParameter, estadoParameter);
+        }
     }
 }

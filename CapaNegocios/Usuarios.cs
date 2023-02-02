@@ -21,5 +21,26 @@ namespace CapaNegocios
         {
             usu.Iniciosesion(usuario, contraseña);
         }
+        public int ModificarUsuario(string id, string nombre, string apellidos)
+        {
+
+            return usu.ModificarUsuario(id, nombre, apellidos);
+        }
+
+        public void EliminarUsuario(string id)
+        {
+            usu.eliminarusuario(id);
+        }
+
+        public int ModificarContraseña(string id, string contraseña)
+        {
+
+            return usu.modificarContraseña(id, contraseña);
+        }
+        public int ModificarEstado(string id, int estado)
+        {
+
+            return usu.modificarEstado(id, estado);
+        }
     }
 }

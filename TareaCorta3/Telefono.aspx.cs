@@ -31,5 +31,22 @@ namespace TareaCorta3
                 throw new Exception(ex.InnerException.ToString());
             }
         }
+
+        protected void btnModificarTelenfono_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                con.ModificarTelefono(Convert.ToInt32(txtIdentificacionTelefono.Text), txtTelefono.Text);
+                con.agregartel();
+                MessageBox.Show("Se modificó con exito");
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Error al modificar");
+            }
+        }
+
+      
     }
 }

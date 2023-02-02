@@ -28,7 +28,7 @@ namespace TareaCorta3
             catch (Exception ex)
             {
                 //throw new Exception(ex.Message.ToString());
-               MessageBox.Show("Error al iniciar sesion");
+               MessageBox.Show("Usuario y/o contraseña incorrectos");
             }
         }
 

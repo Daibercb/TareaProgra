@@ -28,11 +28,14 @@
             &nbsp;</p>
         <asp:Label ID="lblApellido" runat="server" style="top: 169px; left: 270px; position: absolute; height: 19px; width: 54px; bottom: 174px" Text="Apellido"></asp:Label>
         <p>
-            &nbsp;</p>
+        <asp:TextBox ID="txtEstado" runat="server" style="top: 258px; left: 10px; height: 25px; width: 168px"></asp:TextBox>
+        </p>
         <asp:Label ID="Label2" runat="server" style="top: 252px; left: 288px; position: absolute; height: 19px; width: 42px; right: 1077px;" Text="Estado"></asp:Label>
-        <asp:TextBox ID="txtEstado" runat="server" style="top: 277px; left: 10px; height: 25px; width: 168px"></asp:TextBox>
         <p>
             &nbsp;</p>
+        <asp:Button ID="btnModificar" runat="server" OnClick="btnModificar_Click" Text="Modificar " />
+        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />
+        <asp:Button ID="btnCambiarContraseña" runat="server" OnClick="Button1_Click" Text="Cambiar Contraseña-Estado" Width="230px" />
     </form>
 </body>
 </html>

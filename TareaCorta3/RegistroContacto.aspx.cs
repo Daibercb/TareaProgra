@@ -21,7 +21,7 @@ namespace TareaCorta3
         {
             try
             {
-                con.IngresoContacto(Convert.ToInt32(TxtId.Text),Txtnom.Text,Txtape.Text,Txtface.Text,Txtinsta.Text,TxtTwi.Text);
+                con.IngresoContacto(Convert.ToInt32(TxtId.Text),Txtnom.Text,Txtape.Text,txtFaceb.Text,Txtinsta.Text,TxtTwi.Text);
                 MessageBox.Show("Datos Ingresados Correctamente");
             }
             catch (Exception ex)
@@ -40,5 +40,37 @@ namespace TareaCorta3
         {
             Server.Transfer("Telefono.aspx");
         }
+
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                con.EliminarTel(Convert.ToInt32( TxtId.Text));
+                con.EliminarCorreo(Convert.ToInt32(TxtId.Text));
+                con.EliminarContacto(Convert.ToInt32(TxtId.Text));
+
+                MessageBox.Show("Datos Eliminados con exito");
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Error al eliminar los datos");
+            }
+        }
+
+        protected void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                con.ModificarContacto(Convert.ToInt32(TxtId.Text), Txtnom.Text, Txtape.Text, txtFaceb.Text, Txtinsta.Text, TxtTwi.Text);
+                MessageBox.Show("Se ha Modificado con exito");
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Error al modificar Datos");
+            }
+        }
+
     }
 }

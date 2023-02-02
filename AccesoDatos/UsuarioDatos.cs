@@ -25,5 +25,28 @@ namespace AccesoDatos
              ta.InicioSesion(usuario,contraseña);
 
         }
+
+        public int ModificarUsuario(string id,string nom,string ape)
+        {
+            return ta.ModificarUsuarios(id, nom, ape);
+        }
+
+        public int eliminarusuario(string id)
+        {
+            return ta.eliminarUsuario(id);
+        }
+
+        public int modificarContraseña(string id , string contraseña)
+        {
+            string result = string.Empty;
+            byte[] OcultarString = System.Text.Encoding.Unicode.GetBytes(contraseña);
+            result = Convert.ToBase64String(OcultarString);
+            return ta.ModificarContraseña(id, result);
+        }
+
+        public int modificarEstado(string id, int estado)
+        {
+            return ta.ModificarEstado(id, estado);
+        }
     }
 }

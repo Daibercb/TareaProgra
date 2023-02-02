@@ -49,5 +49,15 @@
     <FunctionImportMapping FunctionImportName="InsertarTelefono" FunctionName="Modelo.Store.InsertarTelefono" />
     <FunctionImportMapping FunctionImportName="RegistrarContacto" FunctionName="Modelo.Store.RegistrarContacto" />
     <FunctionImportMapping FunctionImportName="RegistrarUsuario" FunctionName="Modelo.Store.RegistrarUsuario" />
+    <FunctionImportMapping FunctionImportName="eliminarContacto" FunctionName="Modelo.Store.eliminarContacto" />
+    <FunctionImportMapping FunctionImportName="eliminarCorreo" FunctionName="Modelo.Store.eliminarCorreo" />
+    <FunctionImportMapping FunctionImportName="eliminarTelefono" FunctionName="Modelo.Store.eliminarTelefono" />
+    <FunctionImportMapping FunctionImportName="eliminarUsuario" FunctionName="Modelo.Store.eliminarUsuario" />
+    <FunctionImportMapping FunctionImportName="ModificarContacto" FunctionName="Modelo.Store.ModificarContacto" />
+    <FunctionImportMapping FunctionImportName="ModificarCorreo" FunctionName="Modelo.Store.ModificarCorreo" />
+    <FunctionImportMapping FunctionImportName="ModificarTele" FunctionName="Modelo.Store.ModificarTele" />
+    <FunctionImportMapping FunctionImportName="ModificarUsuarios" FunctionName="Modelo.Store.ModificarUsuarios" />
+    <FunctionImportMapping FunctionImportName="ModificarContraseña" FunctionName="Modelo.Store.ModificarContraseña" />
+    <FunctionImportMapping FunctionImportName="ModificarEstado" FunctionName="Modelo.Store.ModificarEstado" />
   </EntityContainerMapping>
 </Mapping>
