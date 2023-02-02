@@ -22,13 +22,20 @@ namespace TareaCorta3
             try
             {
                 lo.IniciarSesion(txtNombreUsu.Text, txtContraseñaUsu.Text);
+                Server.Transfer("RegistroContacto.aspx");
                 MessageBox.Show("Inicio de sesion correcto");
             }
             catch (Exception ex)
             {
-
-                MessageBox.Show("Error al iniciar sesion");
+                //throw new Exception(ex.Message.ToString());
+               MessageBox.Show("Error al iniciar sesion");
             }
+        }
+
+        protected void btnRegistrarUsu_Click(object sender, EventArgs e)
+        {
+            
+            Server.Transfer("RegistrarUsuarios.aspx");
         }
     }
 }

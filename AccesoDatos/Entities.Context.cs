@@ -32,44 +32,6 @@ namespace AccesoDatos
         public virtual DbSet<Telefonos> Telefonos { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
     
-        public virtual int RegistrarUsuario(string id, string nom, string ape, string contraseña, Nullable<int> estado)
-        {
-            var idParameter = id != null ?
-                new ObjectParameter("Id", id) :
-                new ObjectParameter("Id", typeof(string));
-    
-            var nomParameter = nom != null ?
-                new ObjectParameter("nom", nom) :
-                new ObjectParameter("nom", typeof(string));
-    
-            var apeParameter = ape != null ?
-                new ObjectParameter("ape", ape) :
-                new ObjectParameter("ape", typeof(string));
-    
-            var contraseñaParameter = contraseña != null ?
-                new ObjectParameter("contraseña", contraseña) :
-                new ObjectParameter("contraseña", typeof(string));
-    
-            var estadoParameter = estado.HasValue ?
-                new ObjectParameter("Estado", estado) :
-                new ObjectParameter("Estado", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("RegistrarUsuario", idParameter, nomParameter, apeParameter, contraseñaParameter, estadoParameter);
-        }
-    
-        public virtual ObjectResult<Nullable<int>> InicioSesion(string usuario, string password)
-        {
-            var usuarioParameter = usuario != null ?
-                new ObjectParameter("usuario", usuario) :
-                new ObjectParameter("usuario", typeof(string));
-    
-            var passwordParameter = password != null ?
-                new ObjectParameter("password", password) :
-                new ObjectParameter("password", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("InicioSesion", usuarioParameter, passwordParameter);
-        }
-    
         public virtual int AgregaCorreo()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AgregaCorreo");
@@ -91,6 +53,19 @@ namespace AccesoDatos
                 new ObjectParameter("correo", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("IngresarCorreo", idParameter, correoParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> InicioSesion(string usuario, string password)
+        {
+            var usuarioParameter = usuario != null ?
+                new ObjectParameter("usuario", usuario) :
+                new ObjectParameter("usuario", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("InicioSesion", usuarioParameter, passwordParameter);
         }
     
         public virtual int InsertarTelefono(Nullable<int> id, string numero)
@@ -133,6 +108,31 @@ namespace AccesoDatos
                 new ObjectParameter("twi", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("RegistrarContacto", idParameter, nomParameter, apeParameter, faceParameter, instaParameter, twiParameter);
+        }
+    
+        public virtual int RegistrarUsuario(string id, string nom, string ape, string contraseña, Nullable<int> estado)
+        {
+            var idParameter = id != null ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(string));
+    
+            var nomParameter = nom != null ?
+                new ObjectParameter("nom", nom) :
+                new ObjectParameter("nom", typeof(string));
+    
+            var apeParameter = ape != null ?
+                new ObjectParameter("ape", ape) :
+                new ObjectParameter("ape", typeof(string));
+    
+            var contraseñaParameter = contraseña != null ?
+                new ObjectParameter("contraseña", contraseña) :
+                new ObjectParameter("contraseña", typeof(string));
+    
+            var estadoParameter = estado.HasValue ?
+                new ObjectParameter("Estado", estado) :
+                new ObjectParameter("Estado", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("RegistrarUsuario", idParameter, nomParameter, apeParameter, contraseñaParameter, estadoParameter);
         }
     }
 }

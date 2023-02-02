@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="ModeloTarea" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="Modelo" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="Contacto">
     <Key>
       <PropertyRef Name="Identificacion" />
@@ -96,22 +96,15 @@
       <End Role="Contacto" EntitySet="Contacto" />
       <End Role="Telefonos" EntitySet="Telefonos" />
     </AssociationSet>
-    <FunctionImport Name="RegistrarUsuario">
-      <Parameter Name="Id" Mode="In" Type="String" />
-      <Parameter Name="nom" Mode="In" Type="String" />
-      <Parameter Name="ape" Mode="In" Type="String" />
-      <Parameter Name="contraseña" Mode="In" Type="String" />
-      <Parameter Name="Estado" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="InicioSesion" ReturnType="Collection(Int32)">
-      <Parameter Name="usuario" Mode="In" Type="String" />
-      <Parameter Name="password" Mode="In" Type="String" />
-    </FunctionImport>
     <FunctionImport Name="AgregaCorreo" />
     <FunctionImport Name="AgregarTelefono" />
     <FunctionImport Name="IngresarCorreo">
       <Parameter Name="id" Mode="In" Type="Int32" />
       <Parameter Name="correo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="InicioSesion" ReturnType="Collection(Int32)">
+      <Parameter Name="usuario" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="InsertarTelefono">
       <Parameter Name="id" Mode="In" Type="Int32" />
@@ -124,6 +117,13 @@
       <Parameter Name="face" Mode="In" Type="String" />
       <Parameter Name="insta" Mode="In" Type="String" />
       <Parameter Name="twi" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="RegistrarUsuario">
+      <Parameter Name="Id" Mode="In" Type="String" />
+      <Parameter Name="nom" Mode="In" Type="String" />
+      <Parameter Name="ape" Mode="In" Type="String" />
+      <Parameter Name="contraseña" Mode="In" Type="String" />
+      <Parameter Name="Estado" Mode="In" Type="Int32" />
     </FunctionImport>
   </EntityContainer>
 </Schema>

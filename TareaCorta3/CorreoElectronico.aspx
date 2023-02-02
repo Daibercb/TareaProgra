@@ -19,7 +19,7 @@
         <asp:TextBox ID="txtIdentificacionCorreo" runat="server" style="top: 70px; left: 415px; position: absolute; height: 22px; width: 128px"></asp:TextBox>
         <asp:TextBox ID="txtCorrreo" runat="server" style="top: 112px; left: 419px; position: absolute; height: 22px; width: 128px"></asp:TextBox>
         <asp:Button ID="btnModificar" runat="server" style="top: 211px; left: 337px; position: absolute; height: 26px; width: 56px" Text="Modificar" />
-        <asp:Button ID="btnSiguiente2" runat="server" style="top: 210px; left: 503px; position: absolute; height: 29px; width: 60px; right: 459px" Text="Siguiente" />
+        <asp:Button ID="btnSiguiente2" runat="server" style="top: 210px; left: 503px; position: absolute; height: 29px; width: 60px; right: 459px" Text="Siguiente" OnClick="btnSiguiente2_Click" />
     </form>
 </body>
 </html>

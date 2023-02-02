@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="ModeloTareaStoreContainer" CdmEntityContainer="Entities">
+  <EntityContainerMapping StorageEntityContainer="ModeloStoreContainer" CdmEntityContainer="Entities">
     <EntitySetMapping Name="Contacto">
-      <EntityTypeMapping TypeName="ModeloTarea.Contacto">
+      <EntityTypeMapping TypeName="Modelo.Contacto">
         <MappingFragment StoreEntitySet="Contacto">
           <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -16,7 +16,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CorreoElectronico">
-      <EntityTypeMapping TypeName="ModeloTarea.CorreoElectronico">
+      <EntityTypeMapping TypeName="Modelo.CorreoElectronico">
         <MappingFragment StoreEntitySet="CorreoElectronico">
           <ScalarProperty Name="IDContacto" ColumnName="IDContacto" />
           <ScalarProperty Name="Correoelectronico1" ColumnName="Correoelectronico" />
@@ -24,7 +24,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Telefonos">
-      <EntityTypeMapping TypeName="ModeloTarea.Telefonos">
+      <EntityTypeMapping TypeName="Modelo.Telefonos">
         <MappingFragment StoreEntitySet="Telefonos">
           <ScalarProperty Name="IDContacto" ColumnName="IDContacto" />
           <ScalarProperty Name="Telefonos1" ColumnName="Telefonos" />
@@ -32,7 +32,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Usuarios">
-      <EntityTypeMapping TypeName="ModeloTarea.Usuarios">
+      <EntityTypeMapping TypeName="Modelo.Usuarios">
         <MappingFragment StoreEntitySet="Usuarios">
           <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -42,12 +42,12 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="RegistrarUsuario" FunctionName="ModeloTarea.Store.RegistrarUsuario" />
-    <FunctionImportMapping FunctionImportName="InicioSesion" FunctionName="ModeloTarea.Store.InicioSesion" />
-    <FunctionImportMapping FunctionImportName="AgregaCorreo" FunctionName="ModeloTarea.Store.AgregaCorreo" />
-    <FunctionImportMapping FunctionImportName="AgregarTelefono" FunctionName="ModeloTarea.Store.AgregarTelefono" />
-    <FunctionImportMapping FunctionImportName="IngresarCorreo" FunctionName="ModeloTarea.Store.IngresarCorreo" />
-    <FunctionImportMapping FunctionImportName="InsertarTelefono" FunctionName="ModeloTarea.Store.InsertarTelefono" />
-    <FunctionImportMapping FunctionImportName="RegistrarContacto" FunctionName="ModeloTarea.Store.RegistrarContacto" />
+    <FunctionImportMapping FunctionImportName="AgregaCorreo" FunctionName="Modelo.Store.AgregaCorreo" />
+    <FunctionImportMapping FunctionImportName="AgregarTelefono" FunctionName="Modelo.Store.AgregarTelefono" />
+    <FunctionImportMapping FunctionImportName="IngresarCorreo" FunctionName="Modelo.Store.IngresarCorreo" />
+    <FunctionImportMapping FunctionImportName="InicioSesion" FunctionName="Modelo.Store.InicioSesion" />
+    <FunctionImportMapping FunctionImportName="InsertarTelefono" FunctionName="Modelo.Store.InsertarTelefono" />
+    <FunctionImportMapping FunctionImportName="RegistrarContacto" FunctionName="Modelo.Store.RegistrarContacto" />
+    <FunctionImportMapping FunctionImportName="RegistrarUsuario" FunctionName="Modelo.Store.RegistrarUsuario" />
   </EntityContainerMapping>
 </Mapping>

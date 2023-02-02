@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ModeloTarea.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Modelo.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Contacto">
           <Key>
             <PropertyRef Name="Identificacion" />
@@ -107,7 +107,7 @@
           <Parameter Name="contraseña" Type="varchar" Mode="In" />
           <Parameter Name="Estado" Type="int" Mode="In" />
         </Function>
-        <EntityContainer Name="ModeloTareaStoreContainer">
+        <EntityContainer Name="ModeloStoreContainer">
           <EntitySet Name="Contacto" EntityType="Self.Contacto" Schema="Base" store:Type="Tables" />
           <EntitySet Name="CorreoElectronico" EntityType="Self.CorreoElectronico" Schema="Base" store:Type="Tables" />
           <EntitySet Name="Telefonos" EntityType="Self.Telefonos" Schema="Base" store:Type="Tables" />
@@ -125,10 +125,11 @@
             <End Role="Telefonos" EntitySet="Telefonos" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="ModeloTarea" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="Modelo" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Contacto">
           <Key>
             <PropertyRef Name="Identificacion" />
@@ -225,22 +226,15 @@
             <End Role="Contacto" EntitySet="Contacto" />
             <End Role="Telefonos" EntitySet="Telefonos" />
           </AssociationSet>
-          <FunctionImport Name="RegistrarUsuario">
-            <Parameter Name="Id" Mode="In" Type="String" />
-            <Parameter Name="nom" Mode="In" Type="String" />
-            <Parameter Name="ape" Mode="In" Type="String" />
-            <Parameter Name="contraseña" Mode="In" Type="String" />
-            <Parameter Name="Estado" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="InicioSesion" ReturnType="Collection(Int32)">
-            <Parameter Name="usuario" Mode="In" Type="String" />
-            <Parameter Name="password" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="AgregaCorreo" />
           <FunctionImport Name="AgregarTelefono" />
           <FunctionImport Name="IngresarCorreo">
             <Parameter Name="id" Mode="In" Type="Int32" />
             <Parameter Name="correo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InicioSesion" ReturnType="Collection(Int32)">
+            <Parameter Name="usuario" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="InsertarTelefono">
             <Parameter Name="id" Mode="In" Type="Int32" />
@@ -254,15 +248,22 @@
             <Parameter Name="insta" Mode="In" Type="String" />
             <Parameter Name="twi" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="RegistrarUsuario">
+            <Parameter Name="Id" Mode="In" Type="String" />
+            <Parameter Name="nom" Mode="In" Type="String" />
+            <Parameter Name="ape" Mode="In" Type="String" />
+            <Parameter Name="contraseña" Mode="In" Type="String" />
+            <Parameter Name="Estado" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModeloTareaStoreContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="ModeloStoreContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="Contacto">
-            <EntityTypeMapping TypeName="ModeloTarea.Contacto">
+            <EntityTypeMapping TypeName="Modelo.Contacto">
               <MappingFragment StoreEntitySet="Contacto">
                 <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -276,7 +277,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CorreoElectronico">
-            <EntityTypeMapping TypeName="ModeloTarea.CorreoElectronico">
+            <EntityTypeMapping TypeName="Modelo.CorreoElectronico">
               <MappingFragment StoreEntitySet="CorreoElectronico">
                 <ScalarProperty Name="IDContacto" ColumnName="IDContacto" />
                 <ScalarProperty Name="Correoelectronico1" ColumnName="Correoelectronico" />
@@ -284,7 +285,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Telefonos">
-            <EntityTypeMapping TypeName="ModeloTarea.Telefonos">
+            <EntityTypeMapping TypeName="Modelo.Telefonos">
               <MappingFragment StoreEntitySet="Telefonos">
                 <ScalarProperty Name="IDContacto" ColumnName="IDContacto" />
                 <ScalarProperty Name="Telefonos1" ColumnName="Telefonos" />
@@ -292,7 +293,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Usuarios">
-            <EntityTypeMapping TypeName="ModeloTarea.Usuarios">
+            <EntityTypeMapping TypeName="Modelo.Usuarios">
               <MappingFragment StoreEntitySet="Usuarios">
                 <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -302,13 +303,13 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="RegistrarUsuario" FunctionName="ModeloTarea.Store.RegistrarUsuario" />
-          <FunctionImportMapping FunctionImportName="InicioSesion" FunctionName="ModeloTarea.Store.InicioSesion" />
-          <FunctionImportMapping FunctionImportName="AgregaCorreo" FunctionName="ModeloTarea.Store.AgregaCorreo" />
-          <FunctionImportMapping FunctionImportName="AgregarTelefono" FunctionName="ModeloTarea.Store.AgregarTelefono" />
-          <FunctionImportMapping FunctionImportName="IngresarCorreo" FunctionName="ModeloTarea.Store.IngresarCorreo" />
-          <FunctionImportMapping FunctionImportName="InsertarTelefono" FunctionName="ModeloTarea.Store.InsertarTelefono" />
-          <FunctionImportMapping FunctionImportName="RegistrarContacto" FunctionName="ModeloTarea.Store.RegistrarContacto" />
+          <FunctionImportMapping FunctionImportName="AgregaCorreo" FunctionName="Modelo.Store.AgregaCorreo" />
+          <FunctionImportMapping FunctionImportName="AgregarTelefono" FunctionName="Modelo.Store.AgregarTelefono" />
+          <FunctionImportMapping FunctionImportName="IngresarCorreo" FunctionName="Modelo.Store.IngresarCorreo" />
+          <FunctionImportMapping FunctionImportName="InicioSesion" FunctionName="Modelo.Store.InicioSesion" />
+          <FunctionImportMapping FunctionImportName="InsertarTelefono" FunctionName="Modelo.Store.InsertarTelefono" />
+          <FunctionImportMapping FunctionImportName="RegistrarContacto" FunctionName="Modelo.Store.RegistrarContacto" />
+          <FunctionImportMapping FunctionImportName="RegistrarUsuario" FunctionName="Modelo.Store.RegistrarUsuario" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

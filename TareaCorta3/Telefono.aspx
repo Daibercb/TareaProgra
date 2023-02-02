@@ -19,11 +19,8 @@
         <asp:TextBox ID="txtIdentificacionTelefono" runat="server" style="top: 70px; left: 415px; position: absolute; height: 22px; width: 128px"></asp:TextBox>
         <asp:TextBox ID="txtTelefono" runat="server" style="top: 112px; left: 419px; position: absolute; height: 22px; width: 128px"></asp:TextBox>
         <asp:Button ID="btnModificarTelenfono" runat="server" style="top: 211px; left: 337px; position: absolute; height: 26px; width: 56px" Text="Modificar" />
-        <asp:Button ID="btnFinalizar" runat="server" style="top: 210px; left: 503px; position: absolute; height: 29px; width: 60px; right: 459px" Text="Finalizar" />
+        <asp:Button ID="btnFinalizar" runat="server" style="top: 210px; left: 503px; position: absolute; height: 29px; width: 60px; right: 459px" Text="Finalizar" OnClick="btnFinalizar_Click" />
     </form>
-    <form id="form1" runat="server">
-        <div>
-        </div>
-    </form>
+    
 </body>
 </html>
