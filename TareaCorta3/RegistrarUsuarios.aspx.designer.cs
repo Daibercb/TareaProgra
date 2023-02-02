@@ -60,15 +60,6 @@ namespace TareaCorta3
         protected global::System.Web.UI.WebControls.Label lblIdentificacion;
 
         /// <summary>
-        /// Control btnRegistrar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRegistrar;
-
-        /// <summary>
         /// Control txtApellido.
         /// </summary>
         /// <remarks>
@@ -132,6 +123,15 @@ namespace TareaCorta3
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
+        /// Control btnCambiarContraseña.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCambiarContraseña;
+
+        /// <summary>
         /// Control btnModificar.
         /// </summary>
         /// <remarks>
@@ -150,12 +150,12 @@ namespace TareaCorta3
         protected global::System.Web.UI.WebControls.Button btnEliminar;
 
         /// <summary>
-        /// Control btnCambiarContraseña.
+        /// Control btnRegistrar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCambiarContraseña;
+        protected global::System.Web.UI.WebControls.Button btnRegistrar;
     }
 }
