@@ -21,9 +21,17 @@ namespace TareaCorta3
         {
             try
             {
-                con.Correo(Convert.ToInt32( txtIdentificacionCorreo.Text), txtCorrreo.Text);
-                con.agregacorreo();
-                MessageBox.Show("Correcto");
+                if (txtIdentificacionCorreo.Text.Contains("") || txtCorrreo.Text.Contains(""))
+                {
+                    MessageBox.Show("No se permiten espacios en blanco, por favor ingrese los datos solicitados");
+                }
+                else
+                {
+                    con.Correo(Convert.ToInt32(txtIdentificacionCorreo.Text), txtCorrreo.Text);
+                    con.agregacorreo();
+                    MessageBox.Show("Correcto");
+                }
+               
             }
             catch (Exception ex)
             {

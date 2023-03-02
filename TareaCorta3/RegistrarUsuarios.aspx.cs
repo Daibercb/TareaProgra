@@ -14,15 +14,24 @@ namespace TareaCorta3
         Usuarios usu = new Usuarios();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
             try
             {
-                usu.RegistrarEstudiante(txtID.Text, txtNombre.Text, txtApellido.Text, txtContraseña.Text,Convert.ToInt32( txtEstado.Text));
-                MessageBox.Show("Se registro con exito");
+                if (txtID.Text.Contains("") || txtNombre.Text.Contains("") || txtApellido.Text.Contains("") || txtContraseña.Text.Contains("") || txtEstado.Text.Contains(""))
+                {
+                    MessageBox.Show("No se permiten espacios en blanco, por favor ingrese los datos solicitados");
+                }
+                else
+                {
+                    usu.RegistrarEstudiante(txtID.Text, txtNombre.Text, txtApellido.Text, txtContraseña.Text, Convert.ToInt32(txtEstado.Text));
+                    MessageBox.Show("Se registro con exito");
+
+                }
+                
             }
             catch (Exception ex)
             {
@@ -35,8 +44,16 @@ namespace TareaCorta3
         {
             try
             {
-                usu.ModificarUsuario(txtID.Text, txtNombre.Text, txtApellido.Text);
-                MessageBox.Show("Se ha Modificado con exito");
+                if (txtID.Text.Contains(""))
+                {
+                    MessageBox.Show("No se permiten espacios en blanco, por favor ingrese los datos solicitados");
+                }
+                else
+                {
+                    usu.ModificarUsuario(txtID.Text, txtNombre.Text, txtApellido.Text);
+                    MessageBox.Show("Se ha Modificado con exito");
+                }
+              
             }
             catch (Exception)
             {

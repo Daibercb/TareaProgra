@@ -21,9 +21,22 @@ namespace TareaCorta3
         {
             try
             {
-                lo.IniciarSesion(txtNombreUsu.Text, txtContraseñaUsu.Text);
-                Server.Transfer("RegistroContacto.aspx");
-                MessageBox.Show("Inicio de sesion correcto");
+                if (txtNombreUsu.Text.Contains("") || txtContraseñaUsu.Text.Contains(""))
+                {
+                    MessageBox.Show("No se permiten espacios en blanco, por favor ingrese los datos solicitados");
+                }
+                if (txtNombreUsu.Text.Contains("*") || txtNombreUsu.Text.Contains("=") || txtContraseñaUsu.Text.Contains("*") || txtContraseñaUsu.Text.Contains("="))
+                {
+                    MessageBox.Show("Por temas de seguridad no se permiten ciertos caracteres");
+                }
+                else
+                {
+                    lo.IniciarSesion(txtNombreUsu.Text, txtContraseñaUsu.Text);
+                    Server.Transfer("RegistroContacto.aspx");
+                    MessageBox.Show("Inicio de sesion correcto");
+
+                }
+                  
             }
             catch (Exception ex)
             {
@@ -37,5 +50,7 @@ namespace TareaCorta3
             
             Server.Transfer("RegistrarUsuarios.aspx");
         }
+
+     
     }
 }

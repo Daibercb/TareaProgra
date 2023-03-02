@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
+
 
 namespace AccesoDatos
 {
@@ -22,10 +24,15 @@ namespace AccesoDatos
         }
         public void Iniciosesion(string usuario, string contraseña)
         {
-             ta.InicioSesion(usuario,contraseña);
+            string result = string.Empty;
+            byte[] OcultarString = System.Text.Encoding.Unicode.GetBytes(contraseña);
+            result = Convert.ToBase64String(OcultarString);
+            Task tarea = new Task(() => { ta.InicioSesion(usuario, result); });
+            tarea.Start();
+            tarea.Wait();
 
         }
-
+        
         public int ModificarUsuario(string id,string nom,string ape)
         {
             return ta.ModificarUsuarios(id, nom, ape);

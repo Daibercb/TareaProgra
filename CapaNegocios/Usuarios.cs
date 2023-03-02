@@ -19,7 +19,7 @@ namespace CapaNegocios
 
         public void IniciarSesion(string usuario, string contraseña)
         {
-            usu.Iniciosesion(usuario, contraseña);
+             usu.Iniciosesion(usuario, contraseña);
         }
         public int ModificarUsuario(string id, string nombre, string apellidos)
         {

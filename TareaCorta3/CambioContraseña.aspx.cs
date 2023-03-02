@@ -21,8 +21,16 @@ namespace TareaCorta3
         {
             try
             {
-                usu.ModificarContraseña(txtUsuario.Text, txtNContraseña.Text);
-                MessageBox.Show("Datos Modificados con exito");
+                if (txtUsuario.Text.Contains("") || txtNContraseña.Text.Contains(""))
+                {
+                    MessageBox.Show("No se permiten espacios en blanco, por favor ingrese los datos solicitados");
+                }
+                else
+                {
+                    usu.ModificarContraseña(txtUsuario.Text, txtNContraseña.Text);
+                    MessageBox.Show("Datos Modificados con exito");
+                }
+                
             }
             catch (Exception)
             {
@@ -35,8 +43,16 @@ namespace TareaCorta3
         {
             try
             {
-                usu.ModificarEstado(txtUsuario.Text, Convert.ToInt32(txtEstado.Text));
-                MessageBox.Show("Datos Modificados con exito");
+                if (txtUsuario.Text.Contains("") || txtEstado.Text.Contains(""))
+                {
+                    MessageBox.Show("No se permiten espacios en blanco, por favor ingrese los datos solicitados");
+                }
+                else
+                {
+                    usu.ModificarEstado(txtUsuario.Text, Convert.ToInt32(txtEstado.Text));
+                    MessageBox.Show("Datos Modificados con exito");
+                }
+               
             }
             catch (Exception)
             {

@@ -14,16 +14,23 @@ namespace TareaCorta3
         Contacto con = new Contacto();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         protected void btnFinalizar_Click(object sender, EventArgs e)
         {
             try
             {
-                con.Telefono(Convert.ToInt32(txtIdentificacionTelefono.Text), txtTelefono.Text);
-                con.agregartel();
-                MessageBox.Show("Correcto");
+                if (txtIdentificacionTelefono.Text.Contains("") || txtTelefono.Text.Contains(""))
+                {
+                    MessageBox.Show("No se permiten espacios en blanco, por favor ingrese los datos solicitados");
+                }
+                else
+                {
+                    con.Telefono(Convert.ToInt32(txtIdentificacionTelefono.Text), txtTelefono.Text);
+                    con.agregartel();
+                    MessageBox.Show("Correcto");
+                }
             }
             catch (Exception ex)
             {
@@ -36,9 +43,17 @@ namespace TareaCorta3
         {
             try
             {
-                con.ModificarTelefono(Convert.ToInt32(txtIdentificacionTelefono.Text), txtTelefono.Text);
-                con.agregartel();
-                MessageBox.Show("Se modificó con exito");
+                if (txtIdentificacionTelefono.Text.Contains("") || txtTelefono.Text.Contains(""))
+                {
+                    MessageBox.Show("No se permiten espacios en blanco, por favor ingrese los datos solicitados");
+                }
+                else
+                {
+                    con.ModificarTelefono(Convert.ToInt32(txtIdentificacionTelefono.Text), txtTelefono.Text);
+                    con.agregartel();
+                    MessageBox.Show("Se modificó con exito");
+                }
+                
             }
             catch (Exception)
             {
