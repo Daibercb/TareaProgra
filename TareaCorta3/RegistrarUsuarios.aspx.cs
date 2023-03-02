@@ -22,11 +22,11 @@ namespace TareaCorta3
             try
             {
                 usu.RegistrarEstudiante(txtID.Text, txtNombre.Text, txtApellido.Text, txtContraseña.Text,Convert.ToInt32( txtEstado.Text));
-                ClientScript.RegisterClientScriptBlock(this.GetType(), "messagebox", "swal('¡Los datos fueron validados correctamente!','Registrado','success')", true);
+                MessageBox.Show("Se registro con exito");
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message.ToString());
+                MessageBox.Show("Problemas al registrar Datos");
                // ClientScript.RegisterClientScriptBlock(this.GetType(), "messagebox", "swal('¡Error al registrar los datos!','error')", true);
             }
         }
